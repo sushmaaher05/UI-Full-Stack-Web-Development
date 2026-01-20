@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var user = {
+            user_name: "ram",
+            passward: "Ram@456",
+        }
+
+        function ButtonLogin() {
+            var Username = document.getElementById("txtName").value;
+            var Password = document.getElementById("txtPass").value;
+
+            if (Username.length === 0) {
+                alert("User name Required");
+            } else {
+
+                if (Username === user.user_name) {
+
+                    if (Password === user.passward) {
+
+                        document.write("Success..");
+
+                    } else {
+                        alert("Invalid Password");
+                    }
+
+                } else {
+                    alert("Invalid User Name");
+                }
+
+
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <dt>User Name</dt>
+    <dd><input type="text" id="txtName"></dd>
+    <dt>Password</dt>
+    <dd><input type="text" id="txtPass"></dd>
+    <br>
+    <button onclick="ButtonLogin()">Login</button>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       
+
+        function SubmitClick() {
+            var checkboxes = document.getElementsByName("Course");
+            var data = "";
+            var total = 0;
+
+            for (var checkbox of checkboxes) {
+                if (checkbox.checked) {
+                    data += checkbox.dataset.name + "<br>";
+                    total += Number(checkbox.value);
+                }
+            }
+            document.querySelector("p").innerHTML = data;
+            document.getElementById("lblTotal").innerHTML = `Total Fee: <span class ="fw-bold fs-4 text-danger">${total}</span>/-`;
+  
+        }
+        
+  
+       
+    
+       
+
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><input type="checkbox" name="Course" value="7000" data-name="React">React</li>
+        <li><input type="checkbox" name="Course" value="4500" data-name="Java">Java</li>
+        <li><input type="checkbox" name="Course" value="5000" data-name=".Net">.Net</li>
+
+    </ul>
+    <button onclick="SubmitClick()">Submit</button>
+    <h3>Selected Courses</h3>
+    <p></p>
+    <p id="lblTotal"></p>
+</body>
+
+</html>

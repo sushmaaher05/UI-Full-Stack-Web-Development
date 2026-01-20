@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            background-color: aliceblue;
+            color: black;
+            padding: 30px;
+            gap: 60px;
+        }
+
+        button {
+            padding: 5px 20px;
+
+        }
+    </style>
+
+    <script>
+        var ms = 0;
+        var sec = 0;
+
+        function StartClock() {
+            var hours = 0;
+            var min = 0;
+
+            ms++;
+            if (ms == 999) {
+                ms = 0;
+                sec++;
+                if (sec == 59) {
+                    sec = 0;
+                    min++;
+                    if(min==59){
+                        min = 1;
+                        hours++;
+                    }
+                }
+            }
+            document.getElementById("ms").innerHTML = ms;
+            document.getElementById("sec").innerHTML = sec;
+            document.getElementById("min").innerHTML = min;
+            document.getElementById("hours").innerHTML = hours;
+
+        }
+        var thread;
+        function StartClick() {
+            thread = setInterval(StartClock, 1);
+
+        }
+
+        function StopClick() {
+            clearInterval(thread);
+        }
+
+
+    </script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <span id="hours">00</span>
+        </div>
+
+        <div>
+            <span id="min">00</span>
+        </div>
+
+        <div>
+            <span id="sec">00</span>
+        </div>
+
+        <div>
+            <span id="ms">000</span>
+        </div>
+
+    </div>
+
+    <br>
+    <button onclick="StartClick()">Start</button>
+    <button onclick="StopClick()">Stop</button>
+</body>
+
+</html>

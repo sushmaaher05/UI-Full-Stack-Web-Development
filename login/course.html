@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function SubmitClick() {
+            var courseName = "";
+            var checkboxes = document.getElementsByName("course");
+            for(var checkbox of checkboxes) {
+                if(checkbox.checked){
+ 
+                    courseName += checkbox.value + "<br>";
+                }
+
+            }
+             document.querySelector("p").innerHTML = courseName;
+        }
+            
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><input type="checkbox" value="Java" name="course"> Java</li>
+        <li><input type="checkbox" value="React" name="course"> React</li>
+        <li><input type="checkbox" value=".Net" name="course">.Net</li>
+        <li><input type="checkbox" value="PHP" name="course"> PHP</li>
+    </ul>
+
+    <button onclick="SubmitClick()">Submit</button>
+    <h3>Selected course</h3>
+    <p></p>
+
+</body>
+
+</html>
